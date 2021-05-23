@@ -52,12 +52,12 @@
                     var n = 1;}
                 @foreach (var x in sampleData)
                 {
-                    if (n % 2 == 0)
+                  @*  if (n % 2 == 0)
                         color = "#b6fada";
                     else
                         color = "#89d8f1";
-
-                    <tr style="background-color:@color;">
+                    <tr style="background-color:@color;">*@
+                    <tr>
                         <td style="display:none;"> @x.RecordID </td>
                         <td style="font-size:10px;"> @x.OrderID </td>
                         <td> @x.Country </td>
@@ -75,7 +75,7 @@
                         <td style="display:none;"> @x.Latitude </td>
                         <td style="display:none;"> @x.Longitude </td>
                         <td> @x.ShipDate </td>
-                        <td> @x.PaymentDate.Substring(0,10)</td>
+                        <td> @x.PaymentDate.Substring(0, 10)</td>
                         <td style="display:none;"> @x.TimeZone </td>
                         <td> @x.TotalPayment </td>
                         <td style="display:none;"> @x.Gender </td>
