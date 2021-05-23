@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Blazor.AdminLte.Site.Shared</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 

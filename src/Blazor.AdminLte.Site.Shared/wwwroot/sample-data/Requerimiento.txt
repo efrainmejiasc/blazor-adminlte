@@ -1,0 +1,85 @@
+Hola Efraín esta es la prueba, por favor avísame si tienes alguna pregunta.
+
+Primera tarea: página de tabla de datos
+
+Esta tarea mostrará su capacidad para codificar en la interfaz mientras usa y respeta los componentes de la interfaz de usuario de AdmingLTE.
+
+Es necesario crear una vista de Blazor wasm que muestre una tabla de datos con todos los componentes de paginación, acción y filtro, como se muestra en el siguiente enlace. https://preview.keenthemes.com/metronic/demo3/crud/ktdatatable/base/data-json.html
+
+Se adjuntan los datos a visualizar. Verifique el archivo data.json. Esta tarea debe completarse utilizando el siguiente repositorio blazor wasm. https://github.com/sjefvanleeuwen/blazor-adminlte
+
+Requerimientos:
+
+    La tabla de datos debe desarrollarse utilizando solo componentes de la interfaz de usuario de AdminLTE. Este es un ejemplo: https://blazorize-adminlte.morstead.nl/simple-tables
+    Los componentes de la interfaz de usuario de paginación deberían funcionar
+    El sitio no debería fallar
+    Al menos una acción de la columna de acción debe funcionar
+    No se requieren acciones de exportación
+    No se requieren acciones de clasificación, pero si la completa, se reconocerá
+    El sitio no debe volver a renderizarse mientras el usuario usa la vista de tabla de datos
+
+
+Segunda tarea: página de inicio de sesión
+
+Esta tarea mostrará su capacidad para comprender los componentes de Blazor y cómo realizar una implementación de código simple, ya que la solución de inicio de sesión ya está desarrollada.
+
+Es necesario realizar una implementación de inicio de sesión falsa en el proyecto blazor-adminlte. Esta tarea no requiere un backend ya que el servicio de autenticación será falso.
+
+Para desarrollar la vista, siga este ejemplo: https://blazorize-adminlte.morstead.nl/lockscreen
+Para comprender cómo funciona el inicio de sesión en Blazor, siga este tutorial: https://jasonwatmore.com/post/2020/08/13/blazor-webassembly-jwt-authentication-example-tutorial
+En el tutorial, encontrará un repositorio de github con la implementación de autenticación que necesita desarrollar en el proyecto blazor-adminlte. https://github.com/cornflourblue/blazor-webassembly-jwt-authentication-example
+
+Requerimientos:
+* El usuario puede iniciar sesión
+* El usuario puede cerrar la sesión
+* El sitio no debería fallar
+
+Una vez que termines, avísame y organizaremos una reunión para revisar el resultado y el código. Le pediré que explique todo lo que ha hecho para completar las tareas.
+
+
+1. Agregar un componente razor -> Folder Pages
+2. Escribir path de la pagina en minusculas @page "/testtable"
+
+
+    @code {
+        private SampleData[] sampleData;
+
+
+        protected override async Task OnInitializedAsync() =>
+          sampleData = await Http.GetFromJsonAsync<SampleData[]>("sample-data/weather.json");
+
+        public class SampleData
+        {
+            public string RecordID { get; set; }
+            public string OrderID { get; set; }
+            public string Country { get; set; }
+            public string ShipCountry { get; set; }
+            public string ShipCity { get; set; }
+            public string ShipName { get; set; }
+            public string ShipAddress { get; set; }
+            public string CompanyEmail { get; set; }
+            public string CompanyAgent { get; set; }
+            public string CompanyName { get; set; }
+            public string Currency { get; set; }
+            public string Notes { get; set; }
+            public string Department { get; set; }
+            public string Website { get; set; }
+            public string Latitude { get; set; }
+            public string Longitude { get; set; }
+            public string ShipDate { get; set; }
+            public string PaymentDate { get; set; }
+            public string TimeZone { get; set; }
+            public string TotalPayment { get; set; }
+            public string Gender { get; set; }
+            public string Status { get; set; }
+            public string Type { get; set; }
+            public string Actions { get; set; }
+        }
+    }
+
+        protected override async Task OnInitializedAsync()
+        {
+            sampleData = await Http.GetFromJsonAsync<SampleData[]>("sample-data/weather.json");
+        }
+
+

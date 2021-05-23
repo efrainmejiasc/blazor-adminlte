@@ -9,6 +9,7 @@
         {
             <NavBarMenuItem Link="/">Home</NavBarMenuItem>
             <NavBarMenuItem OnClick="HandleContent">Content</NavBarMenuItem><!-- defaults to # -->
+            <NavBarMenuItem OnClick="HandleTableTest">Table Test</NavBarMenuItem>
         }
         @navBarLeftInjectableMenu.content <!-- Injectable for custom menu content per page -->
     </NavBarLeft>
@@ -142,6 +143,9 @@
                 <SideBarMenuItem Icon="far fa-circle" Link="simple-tables">
                     Simple Tables
                 </SideBarMenuItem>
+                <SideBarMenuItem Icon="far fa-circle" Link="tables/table-test">
+                    Simple Tables
+                </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
         <SideBarTreeView Icon="far fa-plus-square">
@@ -195,6 +199,12 @@
     private void HandleContent(Tuple<INavBarMenuItem, MouseEventArgs> args)
     {
         NavigationManager.NavigateTo("messages/see-all-messages");
+    }
+
+
+    private void HandleTableTest(Tuple<INavBarMenuItem, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("tables/table-test");
     }
 
     private void SeeAllNotifications(Tuple<IDropdownFooter, MouseEventArgs> args)

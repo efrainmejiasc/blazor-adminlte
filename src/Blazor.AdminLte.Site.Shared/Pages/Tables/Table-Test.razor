@@ -1,0 +1,133 @@
+﻿
+@page "/tables/table-test"
+    @using System.IO;
+    @using System.Net.Http.Json
+    @inject HttpClient Http
+
+    <ContentHeader>
+        <Header>
+            <PageTitle Title="Data-Table Test" />
+        </Header>
+    </ContentHeader>
+    <ContentMain>
+        <Card>
+            <Title><CardTitle>Simple Full Width Table</CardTitle></Title>
+            <Body>
+                @if (sampleData == null)
+                {
+                    <p><em>Loading...</em></p>
+                }
+                else
+                {
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableHeadCell> RecordID </TableHeadCell>
+                                <TableHeadCell> OrderID </TableHeadCell>
+                                <TableHeadCell> Country </TableHeadCell>
+                                <TableHeadCell> ShipCountry </TableHeadCell>
+                                <TableHeadCell> ShipCity </TableHeadCell>
+                                <TableHeadCell> ShipName </TableHeadCell>
+                                <TableHeadCell> ShipAddress </TableHeadCell>
+                                <TableHeadCell> CompanyEmail </TableHeadCell>
+                                <TableHeadCell> CompanyAgent </TableHeadCell>
+                                <TableHeadCell> CompanyName </TableHeadCell>
+                                <TableHeadCell> Currency </TableHeadCell>
+                                <TableHeadCell> Notes </TableHeadCell>
+                                <TableHeadCell> Department </TableHeadCell>
+                                <TableHeadCell> Website </TableHeadCell>
+                                <TableHeadCell> Latitude </TableHeadCell>
+                                <TableHeadCell> Longitude </TableHeadCell>
+                                <TableHeadCell> ShipDate </TableHeadCell>
+                                <TableHeadCell> PaymentDate </TableHeadCell>
+                                <TableHeadCell> TimeZone </TableHeadCell>
+                                <TableHeadCell> TotalPayment </TableHeadCell>
+                                <TableHeadCell> Gender </TableHeadCell>
+                                <TableHeadCell> Status </TableHeadCell>
+                                <TableHeadCell> Type </TableHeadCell>
+                                <TableHeadCell> Actions </TableHeadCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            @foreach (var x in sampleData)
+                            {
+                                <TableRow>
+                                    <TableCell> @x.RecordID </TableCell>
+                                    <TableCell> @x.OrderID </TableCell>
+                                    <TableCell> @x.Country </TableCell>
+                                    <TableCell> @x.ShipCountry </TableCell>
+                                    <TableCell> @x.ShipCity </TableCell>
+                                    <TableCell> @x.ShipName </TableCell>
+                                    <TableCell> @x.ShipAddress </TableCell>
+                                    <TableCell> @x.CompanyEmail </TableCell>
+                                    <TableCell> @x.CompanyAgent </TableCell>
+                                    <TableCell> @x.CompanyName </TableCell>
+                                    <TableCell> @x.Currency </TableCell>
+                                    <TableCell> @x.Notes </TableCell>
+                                    <TableCell> @x.Department </TableCell>
+                                    <TableCell> @x.Website </TableCell>
+                                    <TableCell> @x.Latitude </TableCell>
+                                    <TableCell> @x.Longitude </TableCell>
+                                    <TableCell> @x.ShipDate </TableCell>
+                                    <TableCell> @x.PaymentDate </TableCell>
+                                    <TableCell> @x.TimeZone </TableCell>
+                                    <TableCell> @x.TotalPayment </TableCell>
+                                    <TableCell> @x.Gender </TableCell>
+                                    <TableCell> @x.Status </TableCell>
+                                    <TableCell> @x.Type </TableCell>
+                                    <TableCell> @x.Actions </TableCell>
+                                </TableRow>
+                            }
+                        </TableBody>
+                    </Table>
+                }
+
+                <label>@exception</label>
+                <label>@lines</label>
+
+                @code {
+                    private List<SampleData> sampleData  = new List<SampleData>();
+                    private string lines = string.Empty;
+                    public string exception = string.Empty;
+
+                    protected override async Task OnInitializedAsync()
+                    {
+                      lines = File.ReadAllText("wwwroot/sample-data/data.json");
+                    }
+
+                    public class SampleData
+                    {
+                        public string? RecordID { get; set; }
+                        public string? OrderID { get; set; }
+                        public string? Country { get; set; }
+                        public string? ShipCountry { get; set; }
+                        public string? ShipCity { get; set; }
+                        public string? ShipName { get; set; }
+                        public string? ShipAddress { get; set; }
+                        public string? CompanyEmail { get; set; }
+                        public string? CompanyAgent { get; set; }
+                        public string? CompanyName { get; set; }
+                        public string? Currency { get; set; }
+                        public string? Notes { get; set; }
+                        public string? Department { get; set; }
+                        public string? Website { get; set; }
+                        public string? Latitude { get; set; }
+                        public string? Longitude { get; set; }
+                        public string? ShipDate { get; set; }
+                        public string? PaymentDate { get; set; }
+                        public string? TimeZone { get; set; }
+                        public string? TotalPayment { get; set; }
+                        public string? Gender { get; set; }
+                        public string? Status { get; set; }
+                        public string? Type { get; set; }
+                        public string? Actions { get; set; }
+                    }
+                }
+
+
+
+            </Body>
+        </Card>
+    </ContentMain>
+
+
