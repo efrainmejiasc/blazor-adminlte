@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -32,7 +32,7 @@ namespace Blazor.AdminLte.Site.Shared.Helpers
             }
 
             // route functions
-            
+
             async Task<HttpResponseMessage> authenticate()
             {
                 var bodyJson = await request.Content.ReadAsStringAsync();
@@ -42,7 +42,8 @@ namespace Blazor.AdminLte.Site.Shared.Helpers
                 if (user == null)
                     return await error("Username or password is incorrect");
 
-                return await ok(new {
+                return await ok(new
+                {
                     Id = user.Id,
                     Username = user.Username,
                     FirstName = user.FirstName,
@@ -81,7 +82,7 @@ namespace Blazor.AdminLte.Site.Shared.Helpers
                     StatusCode = statusCode,
                     Content = new StringContent(JsonSerializer.Serialize(content), Encoding.UTF8, "application/json")
                 };
-                
+
                 // delay to simulate real api call
                 await Task.Delay(500);
 
@@ -91,7 +92,7 @@ namespace Blazor.AdminLte.Site.Shared.Helpers
             bool isLoggedIn()
             {
                 return request.Headers.Authorization?.Parameter == "fake-jwt-token";
-            } 
+            }
         }
     }
 }

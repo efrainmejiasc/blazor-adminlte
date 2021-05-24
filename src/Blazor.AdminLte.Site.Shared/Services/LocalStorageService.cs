@@ -1,16 +1,14 @@
+﻿using Blazor.AdminLte.Site.Shared.Services.Interfaces;
 using Microsoft.JSInterop;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Blazor.AdminLte.Site.Shared.Services
 {
-    public interface ILocalStorageService
-    {
-        Task<T> GetItem<T>(string key);
-        Task SetItem<T>(string key, T value);
-        Task RemoveItem(string key);
-    }
-
     public class LocalStorageService : ILocalStorageService
     {
         private IJSRuntime _jsRuntime;
@@ -39,5 +37,6 @@ namespace Blazor.AdminLte.Site.Shared.Services
         {
             await _jsRuntime.InvokeVoidAsync("localStorage.removeItem", key);
         }
+
     }
 }

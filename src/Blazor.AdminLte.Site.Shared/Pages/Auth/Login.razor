@@ -1,7 +1,10 @@
-﻿@page "/login"
+﻿@page "/auth/login"
 @using System.ComponentModel.DataAnnotations
-@inject Blazor.AdminLte.Site.Shared.Services.IAuthenticationService AuthenticationService
+@using Blazor.AdminLte.Site.Shared.Services
 @inject NavigationManager NavigationManager
+@inject Services.Interfaces.IAuthenticationService AuthenticationService
+
+
 
 <div class="col-md-6 offset-md-3 mt-5">
     <div class="alert alert-info">
@@ -40,18 +43,10 @@
 </div>
 
 @code {
+
     private Model model = new Model();
     private bool loading;
     private string error;
-
-    protected override void OnInitialized()
-    {
-        // redirect to home if already logged in
-        if (AuthenticationService.User != null)
-        {
-            NavigationManager.NavigateTo("");
-        }
-    }
 
     private async void HandleValidSubmit()
     {
@@ -59,9 +54,8 @@
         try
         {
             await AuthenticationService.Login(model.Username, model.Password);
-            // var returnUrl = NavigationManager.BaseUri("returnUrl") ?? "";
-            var returnUrl = "";
-             NavigationManager.NavigateTo(returnUrl);
+            var returnUrl = NavigationManager.ToBaseRelativePath("returnUrl") ?? "";
+            NavigationManager.NavigateTo(returnUrl);
         }
         catch (Exception ex)
         {
@@ -79,4 +73,5 @@
         [Required]
         public string Password { get; set; }
     }
+}
 }

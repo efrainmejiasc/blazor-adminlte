@@ -1,9 +1,10 @@
-
-using Blazor.AdminLte.Site.Shared.Models;
+﻿using Blazor.AdminLte.Site.Shared.Models;
+using Blazor.AdminLte.Site.Shared.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -14,25 +15,19 @@ using System.Threading.Tasks;
 
 namespace Blazor.AdminLte.Site.Shared.Services
 {
-    public interface IHttpService
-    {
-        Task<T> Get<T>(string uri);
-        Task<T> Post<T>(string uri, object value);
-    }
-
-    public class HttpService : IHttpService
+    public class HttpService: IHttpService
     {
         private HttpClient _httpClient;
         private NavigationManager _navigationManager;
         private ILocalStorageService _localStorageService;
         private IConfiguration _configuration;
-
         public HttpService(
             HttpClient httpClient,
             NavigationManager navigationManager,
             ILocalStorageService localStorageService,
             IConfiguration configuration
-        ) {
+        )
+        {
             _httpClient = httpClient;
             _navigationManager = navigationManager;
             _localStorageService = localStorageService;

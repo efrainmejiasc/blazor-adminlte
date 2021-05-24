@@ -1,5 +1,5 @@
-﻿@page "/logout"
-@inject Blazor.AdminLte.Site.Shared.Services.IAuthenticationService AuthenticationService
+﻿@page "/auth/logout"
+@inject Services.Interfaces.IAuthenticationService AuthenticationService
 
 @code {
     protected override async void OnInitialized()

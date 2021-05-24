@@ -1,5 +1,4 @@
-
-using Blazor.AdminLte.Site.Shared.Services;
+﻿using Blazor.AdminLte.Site.Shared.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
@@ -10,6 +9,7 @@ namespace Blazor.AdminLte.Site.Shared.Helpers
 {
     public class AppRouteView : RouteView
     {
+
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 

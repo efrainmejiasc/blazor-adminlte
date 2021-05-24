@@ -1,7 +1,8 @@
-﻿@page "/Index"
+﻿
+@page "/auth/index"
+@using AdminLte.Site.Shared.Models
 @attribute [Authorize]
-@using Blazor.AdminLte.Site.Shared.Models
-@inject Blazor.AdminLte.Site.Shared.Services.IUserService UserService
+@inject Services.Interfaces.IUserService UserService
 
 <div class="card mt-4">
     <h4 class="card-header">You're logged in with Blazor WebAssembly & JWT!!</h4>

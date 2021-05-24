@@ -1,15 +1,13 @@
-
-using Blazor.AdminLte.Site.Shared.Models;
+﻿using Blazor.AdminLte.Site.Shared.Models;
+using Blazor.AdminLte.Site.Shared.Services.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Blazor.AdminLte.Site.Shared.Services
 {
-    public interface IUserService
-    {
-        Task<IEnumerable<User>> GetAll();
-    }
-
     public class UserService : IUserService
     {
         private IHttpService _httpService;

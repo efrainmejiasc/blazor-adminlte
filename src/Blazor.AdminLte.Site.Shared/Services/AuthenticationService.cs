@@ -1,18 +1,14 @@
-
-using Blazor.AdminLte.Site.Shared.Models;
+﻿using Blazor.AdminLte.Site.Shared.Models;
+using Blazor.AdminLte.Site.Shared.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Blazor.AdminLte.Site.Shared.Services
 {
-    public interface IAuthenticationService
-    {
-        User User { get; }
-        Task Initialize();
-        Task Login(string username, string password);
-        Task Logout();
-    }
-
     public class AuthenticationService : IAuthenticationService
     {
         private IHttpService _httpService;
@@ -20,16 +16,17 @@ namespace Blazor.AdminLte.Site.Shared.Services
         private ILocalStorageService _localStorageService;
 
         public User User { get; private set; }
-
         public AuthenticationService(
-            IHttpService httpService,
-            NavigationManager navigationManager,
-            ILocalStorageService localStorageService
-        ) {
+             IHttpService httpService,
+             NavigationManager navigationManager,
+             ILocalStorageService localStorageService
+         )
+        {
             _httpService = httpService;
             _navigationManager = navigationManager;
             _localStorageService = localStorageService;
         }
+
 
         public async Task Initialize()
         {
