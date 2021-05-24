@@ -43,7 +43,7 @@ namespace Blazor.AdminLte.Site.Shared.Services
         {
             User = null;
             await _localStorageService.RemoveItem("user");
-            _navigationManager.NavigateTo("login");
+            _navigationManager.NavigateTo("/auth/login");
         }
     }
 }

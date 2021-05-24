@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Blazor.AdminLte.Site.Shared": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false,
+      "sqlDebugging": false,
+      "nativeDebugging": false,
+      "jsWebView2Debugging": false
+    }
+  }
+}
