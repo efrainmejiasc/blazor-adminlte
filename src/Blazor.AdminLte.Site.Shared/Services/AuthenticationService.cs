@@ -15,7 +15,7 @@ namespace Blazor.AdminLte.Site.Shared.Services
         private NavigationManager _navigationManager;
         private ILocalStorageService _localStorageService;
 
-        public User User { get; private set; }
+        public User User { get;set; }
         public AuthenticationService(
              IHttpService httpService,
              NavigationManager navigationManager,
@@ -35,7 +35,7 @@ namespace Blazor.AdminLte.Site.Shared.Services
 
         public async Task Login(string username, string password)
         {
-            User = await _httpService.Post<User>("/users/authenticate", new { username, password });
+            User = await _httpService.Post<User>("http://localhost:4000/Users/Authenticate", new { username, password });
             await _localStorageService.SetItem("user", User);
         }
 

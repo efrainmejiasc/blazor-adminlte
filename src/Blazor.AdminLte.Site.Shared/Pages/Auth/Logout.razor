@@ -1,9 +1,11 @@
 ﻿@page "/auth/log-out"
 @inject Services.Interfaces.IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
 
 @code {
     protected override async void OnInitialized()
     {
         await AuthenticationService.Logout();
+
     }
 }

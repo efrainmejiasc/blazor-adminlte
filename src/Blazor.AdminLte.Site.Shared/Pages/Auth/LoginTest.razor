@@ -1,7 +1,8 @@
 ﻿
 @page "/auth/login-test"
-@attribute [Authorize]
 @using AdminLte.Site.Shared.Models
+@attribute [Authorize]
+
 
 @inject Services.Interfaces.IUserService UserService
 
@@ -9,10 +10,7 @@
     <h4 class="card-header">You're logged in with Blazor WebAssembly & JWT!!</h4>
     <div class="card-body">
         <h6>Users from secure api end point</h6>
-        @if (loading)
-        {
-            <div class="spinner-border spinner-border-sm"></div>
-        }
+     
         @if (users != null)
         {
             <ul>
@@ -20,14 +18,21 @@
                 {
                     <li>@user.FirstName @user.LastName</li>
                 }
+            </ul> }
+        else
+        {
+            <ul>
+                    <li>Test User</li>
             </ul>
         }
+
+        <a href="/table/test"> DataTable - Test</a>
     </div>
 </div>
 
 @code {
     private bool loading;
-    private IEnumerable<User> users;
+    private IEnumerable<User> users ;
 
     protected override async Task OnInitializedAsync()
     {

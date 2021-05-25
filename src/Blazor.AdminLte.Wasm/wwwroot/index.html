@@ -49,5 +49,27 @@
     <script src="_content/Blazorized.AdminLte.Content/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- overlay scrollbars -->
     <script src="_content/Blazorized.AdminLte.Content/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/autofill/2.3.6/css/autoFill.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/autofill/2.3.6/js/dataTables.autoFill.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        window.initializeDataTable = function initializeDataTable(table) {
+            $(document).ready(function () {
+                setTimeout(function () { $(table).DataTable() }, 0000);
+            });
+        }
+    </script>
+
 </body>
 </html>
